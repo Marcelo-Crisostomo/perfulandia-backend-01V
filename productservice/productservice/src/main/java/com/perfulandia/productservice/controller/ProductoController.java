@@ -13,11 +13,9 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 @RequestMapping("/api/productos")
 public class ProductoController {
-
-
-
     private final ProductoService servicio;
     private final RestTemplate restTemplate;
+    //final: oye esto no lo toques funciona bien así como está
     public ProductoController(ProductoService servicio,  RestTemplate restTemplate){
         this.servicio = servicio;
         this.restTemplate = restTemplate;
@@ -47,6 +45,6 @@ public class ProductoController {
     //Nuevo método
     @GetMapping("/usuario/{id}")
     public Usuario obtenerUsuario(@PathVariable long id){
-        return restTemplate.getForObject("http://localhost:8081/api/usuarios/"+id,Usuario.class);
+        return restTemplate.getForObject("http://localhost:8085/api/usuarios/"+id,Usuario.class);
     }
 }
